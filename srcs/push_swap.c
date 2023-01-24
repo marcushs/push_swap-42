@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:33:54 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/23 14:59:14 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/01/24 16:11:29 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int main(int argc, char **argv)
 		print_message_exit();
 	if (argc == 2)
 	{
-		strings = ft_split(argv[1],' ');
-		check_char(strings);
+		strings = parse_arg_to_strings(argv[1]);
 		for (int i = 0; strings[i]; i++)
 			printf("%s ", strings[i]);
 	}
