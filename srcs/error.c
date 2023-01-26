@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:06:09 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/26 14:43:59 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/01/26 15:56:51 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	check_char_strs(char **strings)
 		{
 			if ((j != 0 && strings[i][j] == '-') || \
 			(j != 0 && strings[i][j] == '+') || !ft_isdigit(strings[i][j]))
-				free_and_exit((void **)&strings, &free_2d_array);
+				free_error_exit((void **)&strings, &free_2d_array);
 		}
 	}
 }

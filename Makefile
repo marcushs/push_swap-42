@@ -6,7 +6,7 @@
 #    By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 11:38:57 by hleung            #+#    #+#              #
-#    Updated: 2023/01/26 14:46:23 by hleung           ###   ########lyon.fr    #
+#    Updated: 2023/01/26 16:21:02 by hleung           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME			=	push_swap
 
 CC				=	gcc
 
-CFLAGS			=	-Wall -Wextra -Werror #-fsanitize=address
+CFLAGS			=	-Wall -Wextra -Werror -fsanitize=address
 
 LIBFT_FLAGS		=	-L libft -lft
 
@@ -22,7 +22,7 @@ LIBS_FILES		=	${shell find libft -type f}
 HEADER_FILES	=	${shell find includes -type f}
 
 DIR_SRCS		=	./srcs/
-LIST_SRCS		=	push_swap.c error.c free.c DCLL.c check_1_arg.c check_args.c
+LIST_SRCS		=	push_swap.c error.c free.c DCLL.c check_1_arg.c check_args.c parse.c
 SRCS			=	${addprefix ${DIR_SRCS}, ${LIST_SRCS}}
 
 DIR_OBJS		=	.objs/

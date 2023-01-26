@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 11:33:54 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/26 17:17:09 by hleung           ###   ########lyon.fr   */
+/*   Created: 2023/01/26 17:12:13 by hleung            #+#    #+#             */
+/*   Updated: 2023/01/26 17:16:25 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,10 @@
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
-int	main(int argc, char **argv)
+void	ft_sa(t_stack *a)
 {
-	t_stack	*a;
+	t_stack	*tmp;
 
-	if (argc < 2)
-		exit(0);
-	if (argc == 2)
-	{
-		a = check_1arg(argv[1]);
-		lst_print(a);
-		printf("OK!\n");
-	}
-	if (argc > 2)
-	{
-		a = check_args(argc, argv);
-		lst_print(a);
-		printf("OK!\n");
-	}
-	return (0);
+	tmp = a;
+	
 }

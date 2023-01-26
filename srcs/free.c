@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:44:14 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/26 14:44:16 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/01/26 15:57:40 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,16 @@ void	print_message_exit(void)
 	exit(0);
 }
 
-void	free_and_exit(void **arr, void (*f)(void **))
+void	free_error_exit(void **arr, void (*f)(void **))
 {
 	f(arr);
 	print_message_exit();
+}
+
+void	free_and_exit(void **arr, void (*f)(void **))
+{
+	f(arr);
+	exit(0);
 }
 
 void	free_normal_arr(void **arr)

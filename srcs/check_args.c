@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:43:37 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/26 15:38:26 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/01/26 17:02:26 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int	strs_to_arr(char *arg, long **arr)
 	{
 		num = ft_atoi(strs[i]);
 		if (num > 2147483647 || num < -2147483648)
-			free_and_exit((void **)&strs, &free_2d_array);
+			free_error_exit((void **)&strs, &free_2d_array);
 		**arr = num;
 		(*arr)++;
 	}
@@ -108,10 +108,11 @@ static void	args_to_arr(int argc, char **argv, long *arr)
 	}
 }
 
-void	check_args(int argc, char **argv)
+t_stack	*check_args(int argc, char **argv)
 {
 	int		count;
 	long	*arr;
+	t_stack	*a;
 
 	count = count_total_elements(argv);
 	if (!count)
@@ -123,8 +124,10 @@ void	check_args(int argc, char **argv)
 		print_message_exit();
 	args_to_arr(argc, argv, arr);
 	if (!check_double(arr, count))
-		free_and_exit((void **)&arr, &free_normal_arr);
-	// for (int i = 0; i < count; i++)
-	// 	printf("%ld ", arr[i]);
+		free_error_exit((void **)&arr, &free_normal_arr);
+	a = arr_to_lst(arr, count);
+	if (!a)
+		free_error_exit((void **)&arr, &free_2d_array);
 	free_normal_arr((void **)&arr);
+	return (a);
 }
