@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+         #
+#    By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 11:38:57 by hleung            #+#    #+#              #
-#    Updated: 2023/01/25 13:00:43 by marcus           ###   ########lyon.fr    #
+#    Updated: 2023/01/26 14:46:23 by hleung           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBS_FILES		=	${shell find libft -type f}
 HEADER_FILES	=	${shell find includes -type f}
 
 DIR_SRCS		=	./srcs/
-LIST_SRCS		=	push_swap.c error.c free.c parse_1_arg.c parse_args.c
+LIST_SRCS		=	push_swap.c error.c free.c DCLL.c check_1_arg.c check_args.c
 SRCS			=	${addprefix ${DIR_SRCS}, ${LIST_SRCS}}
 
 DIR_OBJS		=	.objs/

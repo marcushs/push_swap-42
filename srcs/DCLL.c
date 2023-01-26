@@ -34,33 +34,51 @@ void	lst_traverse_back(t_stack *head)
 		tmp = tmp->prev;
 }
 
-void	lst_add(t_stack **head, long nb)
+void	lst_add_front(t_stack **head, long nb)
 {
 	t_stack	*new;
-	t_stack	*last;
 
 	new = lst_new(nb);
 	if (!*head)
 	{
 		*head = new;
+		new->next = new;
+		new->prev = new;
 		return ;
 	}
-	last = (*head)->prev;
+	(*head)->prev->next = new;
+	new->prev = (*head)->prev;
 	new->next = *head;
-	new->prev = last;
-	last->next = new;
 	(*head)->prev = new;
 	(*head) = new;
+}
+
+void	lst_add_back(t_stack **head, long nb)
+{
+	t_stack	*new;
+
+	new = lst_new(nb);
+	if (!*head)
+	{
+		*head = new;
+		new->next = new;
+		new->prev = new;
+		return ;
+	}
+	(*head)->prev->next = new;
+	new->prev = (*head)->prev;
+	new->next = *head;
+	(*head)->prev = new;
 }
 
 void	lst_clear(t_stack **head)
 {
 	t_stack	*tmp;
-	t_stack	*last;
 
+	if (!*head)
+		exit(0);
 	tmp = *head;
-	last = (*head)->prev;
-	while (tmp )
+	while (tmp->next != *head)
 	{
 		tmp = tmp->next;
 		free(*head);
