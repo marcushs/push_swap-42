@@ -2,6 +2,24 @@
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
+static void	check_char(char **strings)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (strings[++i])
+	{
+		j = -1;
+		while (strings[i][++j])
+		{
+			if ((j != 0 && strings[i][j] == '-') || \
+			(j != 0 && strings[i][j] == '+') || !ft_isdigit(strings[i][j]))
+				free_and_exit((void **)&strings, &free_2d_array);
+		}
+	}
+}
+
 static int	count_elements(char **strings)
 {
 	int	i;
@@ -12,7 +30,7 @@ static int	count_elements(char **strings)
 	return (i);
 }
 
-long	*strings_to_arr(char **strs, int count)
+static long	*strings_to_arr(char **strs, int count)
 {
 	int		i;
 	long	num;
@@ -20,10 +38,7 @@ long	*strings_to_arr(char **strs, int count)
 
 	arr = (long *)malloc(sizeof(long) * count);
 	if (!arr)
-	{
-		free_2d_array((void **)&strs);
-		print_message_exit();
-	}
+		free_and_exit((void **)&strs, &free_2d_array);
 	i = -1;
 	while (++i < count)
 	{
@@ -31,16 +46,14 @@ long	*strings_to_arr(char **strs, int count)
 		if (num > 2147483647 || num < -2147483648)
 		{
 			free_2d_array((void **)&strs);
-			free(arr);
-			arr = NULL;
-			print_message_exit();
+			free_and_exit((void **)&arr, &free_normal_arr);
 		}
 		arr[i] = num;
 	}
 	return (arr);
 }
 
-char	**parse_arg_to_strings(char *argv)
+char	**parse_1arg_to_strings(char *argv)
 {
 	char	**strings;
 	long	*arr;
@@ -51,21 +64,15 @@ char	**parse_arg_to_strings(char *argv)
 		print_message_exit();
 	count = count_elements(strings);
 	if (count < 2)
-	{
-		free_2d_array((void **)&strings);
-		print_message_exit();
-	}
+		free_and_exit((void **)&strings, &free_2d_array);
 	check_char(strings);
 	arr = strings_to_arr(strings, count);
 	if (!check_double(arr, count))
 	{
 		free_2d_array((void **)&strings);
-		free(arr);
-		arr = NULL;
-		print_message_exit();
+		free_and_exit((void **)&arr, &free_normal_arr);
 	}
-	free(arr);
-	arr = NULL;
+	free_normal_arr((void **)&arr);
 	return (strings);
 }
 
