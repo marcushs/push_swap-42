@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:33:54 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/26 17:17:09 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/01/27 12:21:24 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ int	main(int argc, char **argv)
 		lst_print(a);
 		printf("OK!\n");
 	}
+	lst_clear(&a);
 	return (0);
 }

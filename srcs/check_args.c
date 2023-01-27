@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:43:37 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/26 17:02:26 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/01/27 21:13:34 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,43 +68,47 @@ static int	strs_to_arr(char *arg, long **arr)
 	long	num;
 
 	strs = ft_split(arg, ' ');
-	if (!strs)
-		print_message_exit();
-	check_char_strs(strs);
+	if (!strs || !check_char_strs(strs))
+		return (0);
+	// if (!check_char_strs(strs))
+	// 	return (0);
 	i = -1;
 	while (strs[++i])
 	{
 		num = ft_atoi(strs[i]);
 		if (num > 2147483647 || num < -2147483648)
-			free_error_exit((void **)&strs, &free_2d_array);
+			return (free_2d_array((void **)&strs), 0);
 		**arr = num;
 		(*arr)++;
 	}
-	free_2d_array((void **)&strs);
-	return (i);
+	return (free_2d_array((void **)&strs), 1);
 }
 
 static void	args_to_arr(int argc, char **argv, long *arr)
 {
 	long	num;
+	long	*tmp;
 	int		i;
 	int		count;
 
+	tmp = arr;
 	i = 0;
 	while (++i < argc)
 	{
 		count = count_elements(argv[i]);
 		if (count == 1)
 		{
-			check_char(argv[i]);
+			if (!check_char(argv[i]))
+				free_error_exit((void **)&tmp, &free_normal_arr);
 			num = ft_atoi(argv[i]);
 			if (num > 2147483647 || num < -2147483648)
-				print_message_exit();
+				free_error_exit((void **)&tmp, &free_normal_arr);
 			*arr = num;
 			arr++;
 		}
 		if (count > 1)
-			strs_to_arr(argv[i], &arr);
+			if (!strs_to_arr(argv[i], &arr))
+				free_error_exit((void **)&tmp, &free_normal_arr);
 	}
 }
 
@@ -127,7 +131,7 @@ t_stack	*check_args(int argc, char **argv)
 		free_error_exit((void **)&arr, &free_normal_arr);
 	a = arr_to_lst(arr, count);
 	if (!a)
-		free_error_exit((void **)&arr, &free_2d_array);
+		free_error_exit((void **)&arr, &free_normal_arr);
 	free_normal_arr((void **)&arr);
 	return (a);
 }

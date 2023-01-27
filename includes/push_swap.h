@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 12:38:51 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/26 16:58:40 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/01/27 21:10:20 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef struct s_stack
 {
 	long	nb;
+	int		index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }				t_stack;
@@ -26,15 +27,15 @@ typedef struct s_stack
 t_stack	*check_1arg(char *argv);
 t_stack	*check_args(int argc, char **argv);
 //error
-void	check_char(char *str);
-void	check_char_strs(char **strings);
+int		check_char(char *str);
+int		check_char_strs(char **strings);
 int		check_double(long *arr, int count);
 //parse
 t_stack	*arr_to_lst(long *arr, int size);
 //dcll
-t_stack	*lst_new(long nb);
+t_stack	*lst_new(long nb, int index);
 void	lst_add_front(t_stack **head, long nb);
-void	lst_add_back(t_stack **head, long nb);
+void	lst_add_back(t_stack **head, long nb, int index);
 void	lst_clear(t_stack **head);
 void	lst_print(t_stack *head);
 //free

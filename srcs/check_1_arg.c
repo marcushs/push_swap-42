@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_1_arg.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:43:30 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/26 17:03:37 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/01/27 21:05:45 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static int	count_elements(char **strings)
 {
 	int	i;
 
+	if (!strings)
+		return (0);
 	i = 0;
 	while (strings[i])
 		i++;
@@ -55,18 +57,18 @@ t_stack	*check_1arg(char *argv)
 	t_stack	*a;
 
 	strings = ft_split(argv, ' ');
-	if (!strings)
-		print_message_exit();
 	count = count_elements(strings);
 	if (count < 2)
 		free_and_exit((void **)&strings, &free_2d_array);
-	check_char_strs(strings);
+	if (!check_char_strs(strings))
+		print_message_exit();
 	arr = strings_to_arr(strings, count);
 	if (!check_double(arr, count))
 	{
 		free_2d_array((void **)&strings);
 		free_error_exit((void **)&arr, &free_normal_arr);
 	}
+	free_2d_array((void **)&strings);
 	a = arr_to_lst(arr, count);
 	if (!a)
 		free_error_exit((void **)&arr, &free_normal_arr);

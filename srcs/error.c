@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:06:09 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/26 15:56:51 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/01/27 12:37:58 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 #include "../includes/push_swap.h"
 
-void	check_char(char *str)
+int	check_char(char *str)
 {
 	int	i;
 
@@ -22,11 +22,12 @@ void	check_char(char *str)
 	{
 		if ((i != 0 && str[i] == '-') || \
 		(i != 0 && str[i] == '+') || !ft_isdigit(str[i]))
-			print_message_exit();
+			return (0);
 	}
+	return (1);
 }
 
-void	check_char_strs(char **strings)
+int	check_char_strs(char **strings)
 {
 	int	i;
 	int	j;
@@ -39,9 +40,10 @@ void	check_char_strs(char **strings)
 		{
 			if ((j != 0 && strings[i][j] == '-') || \
 			(j != 0 && strings[i][j] == '+') || !ft_isdigit(strings[i][j]))
-				free_error_exit((void **)&strings, &free_2d_array);
+				return (free_2d_array((void **)&strings), 0);
 		}
 	}
+	return (1);
 }
 
 int	check_double(long *arr, int count)

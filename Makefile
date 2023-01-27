@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+         #
+#    By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 11:38:57 by hleung            #+#    #+#              #
-#    Updated: 2023/01/26 16:21:02 by hleung           ###   ########lyon.fr    #
+#    Updated: 2023/01/27 12:20:58 by marcus           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME			=	push_swap
 
 CC				=	gcc
 
-CFLAGS			=	-Wall -Wextra -Werror -fsanitize=address
+CFLAGS			=	-Wall -Wextra -Werror #-fsanitize=address
 
 LIBFT_FLAGS		=	-L libft -lft
 
