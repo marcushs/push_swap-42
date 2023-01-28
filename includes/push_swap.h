@@ -6,7 +6,7 @@
 /*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 12:38:51 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/27 21:10:20 by marcus           ###   ########lyon.fr   */
+/*   Updated: 2023/01/28 07:57:40 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,13 @@ void	lst_add_front(t_stack **head, long nb);
 void	lst_add_back(t_stack **head, long nb, int index);
 void	lst_clear(t_stack **head);
 void	lst_print(t_stack *head);
+int		lst_size(t_stack *head);
 //free
 void	print_message_exit(void);
 void	free_and_exit(void **arr, void (*f)(void **));
 void	free_error_exit(void **arr, void (*f)(void **));
 void	free_normal_arr(void **arr);
 void	free_2d_array(void **arr);
+//instructions
+void	ft_sa(t_stack **a);
 #endif
