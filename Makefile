@@ -6,7 +6,7 @@
 #    By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 11:38:57 by hleung            #+#    #+#              #
-#    Updated: 2023/01/28 07:57:09 by marcus           ###   ########lyon.fr    #
+#    Updated: 2023/01/29 07:46:44 by marcus           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBS_FILES		=	${shell find libft -type f}
 HEADER_FILES	=	${shell find includes -type f}
 
 DIR_SRCS		=	./srcs/
-LIST_SRCS		=	push_swap.c error.c free.c DCLL.c check_1_arg.c check_args.c parse.c instructions.c
+LIST_SRCS		=	push_swap.c error.c free.c DCLL.c check_1_arg.c check_args.c parse.c operations.c
 SRCS			=	${addprefix ${DIR_SRCS}, ${LIST_SRCS}}
 
 DIR_OBJS		=	.objs/
