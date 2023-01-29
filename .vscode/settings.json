@@ -3,6 +3,10 @@
 		"push_swap.h": "c",
 		"stdlib.h": "c",
 		"algorithm": "c",
-		"random": "c"
+		"random": "c",
+		"array": "c",
+		"string_view": "c",
+		"initializer_list": "c",
+		"utility": "c"
 	}
 }
