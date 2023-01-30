@@ -6,7 +6,7 @@
 /*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:43:37 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/27 21:13:34 by marcus           ###   ########lyon.fr   */
+/*   Updated: 2023/01/30 18:30:22 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ static int	strs_to_arr(char *arg, long **arr)
 	strs = ft_split(arg, ' ');
 	if (!strs || !check_char_strs(strs))
 		return (0);
-	// if (!check_char_strs(strs))
-	// 	return (0);
 	i = -1;
 	while (strs[++i])
 	{

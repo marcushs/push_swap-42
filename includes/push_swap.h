@@ -6,7 +6,7 @@
 /*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 12:38:51 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/30 15:06:31 by marcus           ###   ########lyon.fr   */
+/*   Updated: 2023/01/30 21:33:06 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }				t_stack;
+
+typedef struct s_data
+{
+	t_stack	*a;
+	t_stack	*b;
+	int		max;
+	int		min;
+	int		med;
+}				t_data;
 
 //check
 t_stack	*check_1arg(char *argv);
@@ -63,4 +72,12 @@ void	ft_rrr(t_stack **a, t_stack **b);
 //push
 void	ft_pa(t_stack **b, t_stack **a);
 void	ft_pb(t_stack **a, t_stack **b);
+//solve
+void	solve_2(t_stack **a);
+void	solve_3(t_stack **a);
+//solve utils
+int		find_max(t_stack **a);
+int		find_min(t_stack **a);
+int		is_sorted(t_stack **head);
+void	solve_5_or_under(t_stack **a);
 #endif
