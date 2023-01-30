@@ -6,7 +6,7 @@
 /*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 12:38:51 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/29 18:41:13 by marcus           ###   ########lyon.fr   */
+/*   Updated: 2023/01/30 15:06:31 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,22 @@ void	free_and_exit(void **arr, void (*f)(void **));
 void	free_error_exit(void **arr, void (*f)(void **));
 void	free_normal_arr(void **arr);
 void	free_2d_array(void **arr);
-//instructions
-void	ft_sa(t_stack **head);
-void	ft_ra(t_stack **head);
-void	ft_rra(t_stack **head);
+//operations utils
+void	update_index(t_stack **head, int size);
+//operations
+//swap
+void	ft_sa(t_stack **a);
+void	ft_sb(t_stack **b);
+void	ft_ss(t_stack **a, t_stack **b);
+//rotate
+void	ft_ra(t_stack **a);
+void	ft_rb(t_stack **b);
+void	ft_rr(t_stack **a, t_stack **b);
+//rrotate
+void	ft_rra(t_stack **a);
+void	ft_rrb(t_stack **b);
+void	ft_rrr(t_stack **a, t_stack **b);
+//push
+void	ft_pa(t_stack **b, t_stack **a);
+void	ft_pb(t_stack **a, t_stack **b);
 #endif
