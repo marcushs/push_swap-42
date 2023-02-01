@@ -6,13 +6,13 @@
 /*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 12:38:51 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/30 21:33:06 by marcus           ###   ########lyon.fr   */
+/*   Updated: 2023/02/01 16:51:24 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# define ARG_ERROR "ERROR\n"
+# define ARG_ERROR "Error\n"
 # include <stdlib.h>
 
 typedef struct s_stack
@@ -73,11 +73,16 @@ void	ft_rrr(t_stack **a, t_stack **b);
 void	ft_pa(t_stack **b, t_stack **a);
 void	ft_pb(t_stack **a, t_stack **b);
 //solve
-void	solve_2(t_stack **a);
+void	solve(t_stack **a);
 void	solve_3(t_stack **a);
+void	solve_5_or_under(t_stack **a, t_stack **b);
 //solve utils
-int		find_max(t_stack **a);
-int		find_min(t_stack **a);
+long	find_max(t_stack **head);
+long	find_min(t_stack **head);
+int		find_max_index(t_stack **head);
+int		find_min_index(t_stack **head);
 int		is_sorted(t_stack **head);
-void	solve_5_or_under(t_stack **a);
+int		find_index_b(t_stack *b, long push_nb);
+int		find_index_a(t_stack *a, long push_nb);
+int		find_index(t_stack *head, long nb);
 #endif

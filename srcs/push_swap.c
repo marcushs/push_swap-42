@@ -6,7 +6,7 @@
 /*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:33:54 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/30 21:34:09 by marcus           ###   ########lyon.fr   */
+/*   Updated: 2023/02/01 12:58:57 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
-	//t_stack	*b = NULL;
 
 	if (argc < 2)
 		exit(0);
@@ -30,7 +29,6 @@ int	main(int argc, char **argv)
 		// lst_print(b);
 		// ft_pb(&a, &b);
 		// ft_pb(&a, &b);
-		solve_3(&a);
 		printf("Stack a:\n");
 		lst_print(a);
 		// printf("Stack b:\n");
@@ -42,7 +40,7 @@ int	main(int argc, char **argv)
 		printf("Stack a:\n");
 		lst_print(a);
 		(!is_sorted(&a) ? printf("NOT SORTED!\n") : printf("SORTED!\n"));
-		solve_5_or_under(&a);
+		solve(&a);
 		printf("Stack a:\n");
 		lst_print(a);
 		(!is_sorted(&a) ? printf("NOT SORTED!\n") : printf("SORTED!\n"));

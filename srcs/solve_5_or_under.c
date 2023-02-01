@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 //works
-void	solve_2(t_stack **a)
+static void	solve_2(t_stack **a)
 {
 	if ((*a)->nb > (*a)->next->nb)
 		ft_sa(a);
@@ -11,41 +11,84 @@ void	solve_2(t_stack **a)
 //works
 void	solve_3(t_stack **a)
 {
-	if (find_min(a) == 2)
+	if (is_sorted(a))
+		return ;
+	if (find_min_index(a) == 2)
 	{
 		ft_rra(a);
 		if (is_sorted(a))
 			return ;
 	}
-	if (find_min(a) == 1)
+	if (find_min_index(a) == 1)
 	{
 		ft_sa(a);
 		if (is_sorted(a))
 			return ;
 	}
-	if (find_min(a) == 0)
+	if (find_min_index(a) == 0)
 	{
 		ft_rra(a);
 		ft_sa(a);
 	}
 }
 
-void	solve_5_or_under(t_stack **a)
+static void	solve_4(t_stack **a, t_stack **b)
+{
+	if (is_sorted(a))
+		return ;
+	if (find_min_index(a) <= 1)
+	{
+		while (find_min_index(a) > 0)
+			ft_sa(a);
+	}
+	else
+	{
+		while (find_min_index(a) > 0)
+			ft_rra(a);
+	}
+	ft_pb(a, b);
+	solve_3(a);
+	ft_pa(b, a);
+}
+
+static void	solve_5(t_stack **a, t_stack **b)
+{
+	if (is_sorted(a))
+		return ;
+	if (find_max_index(a) == 2)
+	{
+		while (find_max_index(a) > 0)
+			ft_ra(a);
+	}
+	else if (find_max_index(a) < 2)
+	{
+		while (find_max_index(a) > 0)
+			ft_sa(a);
+	}
+	else
+	{
+		while (find_max_index(a) > 0)
+			ft_rra(a);
+	}
+	ft_pb(a, b);
+	solve_4(a, b);
+	ft_pa(b, a);
+	ft_ra(a);
+}
+
+void	solve_5_or_under(t_stack **a, t_stack **b)
 {
 	int	size;
-	t_stack	*b;
 
-	size = lst_size(a);
+	size = lst_size(*a);
 	if (is_sorted(a))
 		return ;
 	if (size == 2)
 		solve_2(a);
 	else if (size == 3)
 		solve_3(a);
+	else if (size == 4)
+		solve_4(a, b);
 	else
-	{
-		while (lst_size(a) > 3)
-			ft_pb(a, &b);
-		solve_3(a);
-	}
+		solve_5(a, b);
 }
