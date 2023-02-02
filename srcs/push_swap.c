@@ -23,16 +23,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		a = check_1arg(argv[1]);
-		printf("Stack a:\n");
-		lst_print(a);
-		// printf("Stack b:\n");
-		// lst_print(b);
-		// ft_pb(&a, &b);
-		// ft_pb(&a, &b);
-		printf("Stack a:\n");
-		lst_print(a);
-		// printf("Stack b:\n");
-		// lst_print(b);
+		solve(&a);
 	}
 	if (argc > 2)
 	{

@@ -64,14 +64,14 @@ int	find_target_index_a(t_stack *a, long push_nb)
 	t_stack	*tmp;
 
 	i = 1;
-	if (push_nb > a->nb && push_nb < a->prev->nb)
+	if (push_nb < a->nb && push_nb > a->prev->nb)
 		return (0);
 	else if (push_nb > find_max(&a) || push_nb < find_min(&a))
 		i = find_min_index(&a);
 	else
 	{
 		tmp = a->next;
-		while (a->nb < push_nb || tmp->nb > push_nb)
+		while (a->nb > push_nb || tmp->nb < push_nb)
 		{
 			a = a->next;
 			tmp = a->next;

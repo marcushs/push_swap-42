@@ -22,8 +22,10 @@ LIBS_FILES		=	${shell find libft -type f}
 HEADER_FILES	=	${shell find includes -type f}
 
 DIR_SRCS		=	./srcs/
-LIST_SRCS		=	push_swap.c error.c free.c DCLL.c check_1_arg.c check_args.c parse.c swap.c rotate.c rrotate.c \
-					push.c operation_utils.c solve_5_or_under.c solve_utils.c solve_large_list.c
+LIST_SRCS		=	best_rotate_combo.c cases_a_to_b.c cases_b_to_a.c check_1_arg.c check_args.c \
+					DCLL.c error.c free.c operation_utils.c parse.c push_swap.c push.c rotate.c rrotate.c \
+					run_combo.c solve_5_or_under.c solve_large_list.c solve_utils.c solve_utils2.c \
+					swap.c
 SRCS			=	${addprefix ${DIR_SRCS}, ${LIST_SRCS}}
 
 DIR_OBJS		=	.objs/

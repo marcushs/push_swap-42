@@ -97,6 +97,14 @@ int		ft_count_rarb_a(t_stack *a, t_stack *b, long nb);
 int		ft_count_rrarrb_a(t_stack *a, t_stack *b, long nb);
 int		ft_count_rrarb_a(t_stack *a, t_stack *b, long nb);
 int		ft_count_rarrb_a(t_stack *a, t_stack *b, long nb);
-
-
+//best rotate comb
+int		best_rotate_comb_a_to_b(t_stack *a, t_stack *b);
+int		best_rotate_comb_b_to_a(t_stack *a, t_stack *b);
+//run cases
+int		ft_run_rarb(t_stack **a, t_stack **b, long nb, char c);
+int		ft_run_rrarrb(t_stack **a, t_stack **b, long nb, char c);
+int		ft_run_rrarb(t_stack **a, t_stack **b, long nb, char c);
+int		ft_run_rarrb(t_stack **a, t_stack **b, long nb, char c);
+//solve
+void	solve(t_stack **a);
 #endif
