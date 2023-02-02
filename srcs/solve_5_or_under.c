@@ -2,13 +2,12 @@
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
-//works
 static void	solve_2(t_stack **a)
 {
 	if ((*a)->nb > (*a)->next->nb)
 		ft_sa(a);
 }
-//works
+
 void	solve_3(t_stack **a)
 {
 	if (is_sorted(a))

@@ -82,7 +82,21 @@ long	find_min(t_stack **head);
 int		find_max_index(t_stack **head);
 int		find_min_index(t_stack **head);
 int		is_sorted(t_stack **head);
-int		find_index_b(t_stack *b, long push_nb);
-int		find_index_a(t_stack *a, long push_nb);
+int		find_target_index_b(t_stack *b, long push_nb);
+int		find_target_index_a(t_stack *a, long push_nb);
 int		find_index(t_stack *head, long nb);
+int		find_index_back(t_stack *head, long nb);
+//smart rotate cases
+//from a to b
+int		ft_count_rarb(t_stack *a, t_stack *b, long nb);
+int		ft_count_rrarrb(t_stack *a, t_stack *b, long nb);
+int		ft_count_rrarb(t_stack *a, t_stack *b, long nb);
+int		ft_count_rarrb(t_stack *a, t_stack *b, long nb);
+//from b to a
+int		ft_count_rarb_a(t_stack *a, t_stack *b, long nb);
+int		ft_count_rrarrb_a(t_stack *a, t_stack *b, long nb);
+int		ft_count_rrarb_a(t_stack *a, t_stack *b, long nb);
+int		ft_count_rarrb_a(t_stack *a, t_stack *b, long nb);
+
+
 #endif
