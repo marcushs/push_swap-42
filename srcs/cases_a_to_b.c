@@ -18,7 +18,7 @@ int	ft_count_rrarrb(t_stack *a, t_stack *b, long nb)
 
 	i = 0;
 	if (find_target_index_b(b, nb))
-		i = find_index_back(b, nb);
+		i = lst_size(b) - find_target_index_b(b, nb);
 	if (i < find_index_back(a, nb) && find_index(a, nb))
 		i = find_index_back(a, nb);
 	return (i);
@@ -41,7 +41,7 @@ int	ft_count_rarrb(t_stack *a, t_stack *b, long nb)
 
 	i = 0;
 	if (find_target_index_b(b, nb))
-		i = find_index_back(b, nb);
+		i = lst_size(b) - find_target_index_b(b, nb);
 	i = find_index(a, nb) + i;
 	return (i);
 }

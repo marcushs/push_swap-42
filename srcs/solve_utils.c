@@ -32,7 +32,7 @@ long	find_min(t_stack **head)
 	min = tmp->nb;
 	while (1)
 	{
-		if (tmp->nb > min)
+		if (tmp->nb < min)
 			min = tmp->nb;
 		if (tmp == last)
 			return (min);

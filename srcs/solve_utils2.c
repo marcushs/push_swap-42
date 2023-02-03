@@ -39,7 +39,9 @@ int	find_target_index_b(t_stack *b, long push_nb)
 {
 	int		i;
 	t_stack	*tmp;
+	t_stack	*last;
 
+	last = b->prev;
 	i = 1;
 	if (push_nb > b->nb && push_nb < b->prev->nb)
 		return (0);
@@ -51,6 +53,8 @@ int	find_target_index_b(t_stack *b, long push_nb)
 		while (b->nb < push_nb || tmp->nb > push_nb)
 		{
 			b = b->next;
+			if (b == last)
+				return (i);
 			tmp = b->next;
 			i++;
 		}
@@ -62,8 +66,10 @@ int	find_target_index_a(t_stack *a, long push_nb)
 {
 	int		i;
 	t_stack	*tmp;
+	t_stack	*last;
 
 	i = 1;
+	last = a->prev;
 	if (push_nb < a->nb && push_nb > a->prev->nb)
 		return (0);
 	else if (push_nb > find_max(&a) || push_nb < find_min(&a))
@@ -74,6 +80,8 @@ int	find_target_index_a(t_stack *a, long push_nb)
 		while (a->nb > push_nb || tmp->nb < push_nb)
 		{
 			a = a->next;
+			if (a == last)
+				return (i);
 			tmp = a->next;
 			i++;
 		}

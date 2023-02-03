@@ -28,13 +28,15 @@ int	main(int argc, char **argv)
 	if (argc > 2)
 	{
 		a = check_args(argc, argv);
-		printf("Stack a:\n");
-		lst_print(a);
-		(!is_sorted(&a) ? printf("NOT SORTED!\n") : printf("SORTED!\n"));
+		// //printf("%d\n", find_min_index(&a));
+		
+		// printf("Stack a:\n");
+		// lst_print(a);
+		// (!is_sorted(&a) ? printf("NOT SORTED!\n") : printf("SORTED!\n"));
 		solve(&a);
-		printf("Stack a:\n");
-		lst_print(a);
-		(!is_sorted(&a) ? printf("NOT SORTED!\n") : printf("SORTED!\n"));
+		// printf("Stack a:\n");
+		// lst_print(a);
+		// (!is_sorted(&a) ? printf("NOT SORTED!\n") : printf("SORTED!\n"));
 		// printf("Stack b:\n");
 		// lst_print(b);
 	}

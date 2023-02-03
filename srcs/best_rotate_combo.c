@@ -38,10 +38,10 @@ int	best_rotate_comb_b_to_a(t_stack *a, t_stack *b)
 			i = ft_count_rarb_a(a, b, tmp->nb);
 		if (i > ft_count_rrarrb_a(a, b, tmp->nb))
 			i = ft_count_rrarrb_a(a, b, tmp->nb);
-		if (i > ft_count_rrarb_a(a, b, tmp->nb))
-			i = ft_count_rrarb_a(a, b, tmp->nb);
 		if (i > ft_count_rarrb_a(a, b, tmp->nb))
 			i = ft_count_rarrb_a(a, b, tmp->nb);
+		if (i > ft_count_rrarb_a(a, b, tmp->nb))
+			i = ft_count_rrarb_a(a, b, tmp->nb);
 		if (tmp == b->prev)
 			return (i);
 		tmp = tmp->next;

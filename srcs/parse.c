@@ -19,7 +19,6 @@ t_stack	*arr_to_lst(long *arr, int size)
 	t_stack	*a;
 	int		i;
 
-	//initialize head of list to NULL, otherwise segfault
 	a = NULL;
 	if (!arr)
 		free_error_exit((void **)&arr, &free_2d_array);

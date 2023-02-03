@@ -42,11 +42,12 @@ void	push_b_sort_3_a(t_stack **a, t_stack **b)
 void	push_back_a(t_stack **a, t_stack **b)
 {
 	int		i;
+	int		size;
 	t_stack	*tmp;
 
-	while (*b)
+	size = lst_size(*b);
+	while (size-- > 0)
 	{
-		printf("hello\n");
 		tmp = *b;
 		i = best_rotate_comb_b_to_a(*a, *b);
 		while (i >= 0)
@@ -67,16 +68,23 @@ void	push_back_a(t_stack **a, t_stack **b)
 
 void	solve_large(t_stack **a, t_stack **b)
 {
+	int	min_index;
+
 	if (!is_sorted(a))
 	{
 		push_b_sort_3_a(a, b);
-		printf("Stack a:\n");
-		lst_print(*a);
-		(!is_sorted(a) ? printf("NOT SORTED!\n") : printf("SORTED!\n"));
-		printf("Stack b:\n");
-		lst_print(*b);
-		(!is_sorted(b) ? printf("NOT SORTED!\n") : printf("SORTED!\n"));
 		push_back_a(a, b);
+		min_index = find_min_index(a);
+		if (min_index < (lst_size(*a) - min_index))
+		{
+			while ((*a)->nb != find_min(a))
+				ft_ra(a);
+		}
+		else
+		{
+			while ((*a)->nb != find_min(a))
+				ft_rra(a);
+		}
 	}
 }
 
