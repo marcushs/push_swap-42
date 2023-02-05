@@ -23,15 +23,6 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }				t_stack;
 
-typedef struct s_data
-{
-	t_stack	*a;
-	t_stack	*b;
-	int		max;
-	int		min;
-	int		med;
-}				t_data;
-
 //check
 t_stack	*check_1arg(char *argv);
 t_stack	*check_args(int argc, char **argv);
