@@ -10,20 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
-#include "../includes/push_swap.h"
-#include <stdio.h>
+#include "../../includes/push_swap.h"
 
-static int	count_elements(char **strings)
+static int	count_elements(char *arg)
 {
-	int	i;
+	int	count;
 
-	if (!strings)
-		return (0);
-	i = 0;
-	while (strings[i])
-		i++;
-	return (i);
+	count = 0;
+	while (*arg)
+	{
+		while (*arg && *arg == ' ')
+			arg++;
+		if (*arg)
+		{
+			count++;
+			arg++;
+		}
+		while (*arg && *arg != ' ')
+			arg++;
+	}
+	return (count);
 }
 
 static long	*strings_to_arr(char **strs, int count)
@@ -56,14 +62,14 @@ t_stack	*check_1arg(char *argv)
 	int		count;
 	t_stack	*a;
 
+	count = count_elements(argv);
+	if (count == 0)
+		exit(0);
 	strings = ft_split(argv, ' ');
-	count = count_elements(strings);
-	if (count < 2)
-		free_and_exit((void **)&strings, &free_2d_array);
-	if (!check_char_strs(strings))
-		print_message_exit();
+	if (!strings)
+		exit(0);
 	arr = strings_to_arr(strings, count);
-	if (!check_double(arr, count))
+	if (!check_char_strs(strings) || !check_double(arr, count))
 	{
 		free_2d_array((void **)&strings);
 		free_error_exit((void **)&arr, &free_normal_arr);

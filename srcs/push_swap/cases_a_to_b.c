@@ -1,6 +1,4 @@
-#include "../includes/libft.h"
-#include "../includes/push_swap.h"
-#include <stdio.h>
+#include "../../includes/push_swap.h"
 
 int	ft_count_rarb(t_stack *a, t_stack *b, long nb)
 {

@@ -9,10 +9,7 @@
 /*   Updated: 2023/01/27 21:32:55 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../includes/libft.h"
-#include "../includes/push_swap.h"
-#include <stdio.h>
+#include "../../includes/push_swap.h"
 
 t_stack	*lst_new(long nb, int index)
 {
@@ -20,7 +17,6 @@ t_stack	*lst_new(long nb, int index)
 
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
-		//need free here
 		return (NULL);
 	new->nb = nb;
 	new->index = index;
@@ -28,44 +24,6 @@ t_stack	*lst_new(long nb, int index)
 	new->prev = new;
 	return (new);
 } 
-
-void	lst_traverse(t_stack *head)
-{
-	t_stack	*tmp;
-
-	tmp = head;
-	while (tmp->next != head)
-		tmp = tmp->next;
-}
-
-void	lst_traverse_back(t_stack *head)
-{
-	t_stack	*tmp;
-
-	tmp = head->prev;
-	while (tmp != head)
-		tmp = tmp->prev;
-}
-
-// void	lst_add_front(t_stack **head, long nb)
-// {
-// 	t_stack	*new;
-
-// 	new = lst_new(nb);
-// 	//if (!new)
-// 	if (!*head)
-// 	{
-// 		*head = new;
-// 		new->next = new;
-// 		new->prev = new;
-// 		return ;
-// 	}
-// 	(*head)->prev->next = new;
-// 	new->prev = (*head)->prev;
-// 	new->next = *head;
-// 	(*head)->prev = new;
-// 	(*head) = new;
-// }
 
 void	lst_add_back(t_stack **head, long nb, int index)
 {
@@ -86,6 +44,8 @@ void	lst_add_back(t_stack **head, long nb, int index)
 		new->next = *head;
 		(*head)->prev = new;
 	}
+	else
+		lst_clear(head);
 }
 
 void	lst_clear(t_stack **head)
@@ -95,6 +55,11 @@ void	lst_clear(t_stack **head)
 
 	if (!*head)
 		exit(0);
+	if (lst_size(*head) == 1)
+	{
+		free(*head);
+		exit(0);
+	}
 	tmp = *head;
 	last = (*head)->prev;
 	while (tmp->next != last)
@@ -105,22 +70,6 @@ void	lst_clear(t_stack **head)
 	}
 	free(last);
 	free(*head);
-}
-
-void	lst_print(t_stack *head)
-{
-	t_stack	*tmp;
-	
-	tmp = head;
-	if (!head)
-		return ;
-	do
-	{
-		printf("Index: %d ", tmp->index);
-		printf("Value: %ld ", tmp->nb);
-		printf("\n");
-		tmp = tmp->next;
-	} while (tmp != head);
 }
 
 int	lst_size(t_stack *head)

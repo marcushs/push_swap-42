@@ -9,9 +9,7 @@
 /*   Updated: 2023/01/26 15:57:40 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../includes/libft.h"
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	print_message_exit(void)
 {

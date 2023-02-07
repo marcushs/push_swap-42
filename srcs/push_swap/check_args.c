@@ -9,10 +9,7 @@
 /*   Updated: 2023/01/30 18:30:22 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../includes/libft.h"
-#include "../includes/push_swap.h"
-#include <stdio.h>
+#include "../../includes/push_swap.h"
 
 static int	count_elements(char *arg)
 {
@@ -118,8 +115,6 @@ t_stack	*check_args(int argc, char **argv)
 
 	count = count_total_elements(argv);
 	if (!count)
-		print_message_exit();
-	if (count == 1)
 		exit(0);
 	arr = (long *)malloc(sizeof(long) * count);
 	if (!arr)

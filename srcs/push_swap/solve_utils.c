@@ -1,6 +1,4 @@
-#include "../includes/libft.h"
-#include "../includes/push_swap.h"
-#include <stdio.h>
+#include "../../includes/push_swap.h"
 
 long	find_max(t_stack **head)
 {
@@ -93,6 +91,8 @@ int	is_sorted(t_stack **head)
 	t_stack	*tmp;
 	long	current;
 
+	if (lst_size(*head) == 1)
+		return (1);
 	tmp = *head;
 	while (1)
 	{

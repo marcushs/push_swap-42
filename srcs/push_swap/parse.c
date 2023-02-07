@@ -9,10 +9,7 @@
 /*   Updated: 2023/01/27 21:07:51 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../includes/libft.h"
-#include "../includes/push_swap.h"
-#include <stdio.h>
+#include "../../includes/push_swap.h"
 
 t_stack	*arr_to_lst(long *arr, int size)
 {
@@ -21,7 +18,7 @@ t_stack	*arr_to_lst(long *arr, int size)
 
 	a = NULL;
 	if (!arr)
-		free_error_exit((void **)&arr, &free_2d_array);
+		return (NULL);
 	i = -1;
 	while (++i < size)
 		lst_add_back(&a, arr[i], i);

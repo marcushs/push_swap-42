@@ -13,7 +13,9 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # define ARG_ERROR "Error\n"
+# define BUFFER_SIZE 1
 # include <stdlib.h>
+# include "../libft/libft.h"
 
 typedef struct s_stack
 {
@@ -49,20 +51,20 @@ void	free_2d_array(void **arr);
 void	update_index(t_stack **head, int size);
 //operations
 //swap
-void	ft_sa(t_stack **a);
-void	ft_sb(t_stack **b);
-void	ft_ss(t_stack **a, t_stack **b);
+void	ft_sa(t_stack **a, char c);
+void	ft_sb(t_stack **b, char c);
+void	ft_ss(t_stack **a, t_stack **b, char c);
 //rotate
-void	ft_ra(t_stack **a);
-void	ft_rb(t_stack **b);
-void	ft_rr(t_stack **a, t_stack **b);
+void	ft_ra(t_stack **a, char c);
+void	ft_rb(t_stack **b, char c);
+void	ft_rr(t_stack **a, t_stack **b, char c);
 //rrotate
-void	ft_rra(t_stack **a);
-void	ft_rrb(t_stack **b);
-void	ft_rrr(t_stack **a, t_stack **b);
+void	ft_rra(t_stack **a, char c);
+void	ft_rrb(t_stack **b, char c);
+void	ft_rrr(t_stack **a, t_stack **b, char c);
 //push
-void	ft_pa(t_stack **b, t_stack **a);
-void	ft_pb(t_stack **a, t_stack **b);
+void	ft_pa(t_stack **b, t_stack **a, char c);
+void	ft_pb(t_stack **a, t_stack **b, char c);
 //solve
 void	solve(t_stack **a);
 void	solve_3(t_stack **a);
@@ -96,6 +98,9 @@ int		ft_run_rarb(t_stack **a, t_stack **b, long nb, char c);
 int		ft_run_rrarrb(t_stack **a, t_stack **b, long nb, char c);
 int		ft_run_rrarb(t_stack **a, t_stack **b, long nb, char c);
 int		ft_run_rarrb(t_stack **a, t_stack **b, long nb, char c);
-//solve
-void	solve(t_stack **a);
+//gnl && gnl_utils
+void	*ft_calloc(size_t count, size_t size);
+char	*ft_strjoin_gnl(char *s1, char *s2);
+int		ft_strchr_gnl(char *s, int c);
+char	*get_next_line(int fd);
 #endif

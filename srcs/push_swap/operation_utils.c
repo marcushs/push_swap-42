@@ -1,5 +1,4 @@
-#include "../includes/libft.h"
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	update_index(t_stack **head, int size)
 {

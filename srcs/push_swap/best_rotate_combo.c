@@ -1,6 +1,4 @@
-#include "../includes/libft.h"
-#include "../includes/push_swap.h"
-#include <stdio.h>
+#include "../../includes/push_swap.h"
 
 int	best_rotate_comb_a_to_b(t_stack *a, t_stack *b)
 {

@@ -1,6 +1,4 @@
-#include "../includes/libft.h"
-#include "../includes/push_swap.h"
-#include <stdio.h>
+#include "../../includes/push_swap.h"
 
 void	smart_rotate_till_3_in_a(t_stack **a, t_stack **b)
 {
@@ -30,9 +28,9 @@ void	smart_rotate_till_3_in_a(t_stack **a, t_stack **b)
 void	push_b_sort_3_a(t_stack **a, t_stack **b)
 {
 	if (lst_size(*a) > 3 && !is_sorted(a))
-		ft_pb(a, b);
+		ft_pb(a, b, 'p');
 	if (lst_size(*a) > 3 && !is_sorted(a))
-		ft_pb(a, b);
+		ft_pb(a, b, 'p');
 	if (lst_size(*a) > 3 && !is_sorted(a))
 		smart_rotate_till_3_in_a(a, b);
 	if (!is_sorted(a))
@@ -78,19 +76,19 @@ void	solve_large(t_stack **a, t_stack **b)
 		if (min_index < (lst_size(*a) - min_index))
 		{
 			while ((*a)->nb != find_min(a))
-				ft_ra(a);
+				ft_ra(a, 'p');
 		}
 		else
 		{
 			while ((*a)->nb != find_min(a))
-				ft_rra(a);
+				ft_rra(a, 'p');
 		}
 	}
 }
 
 void	solve(t_stack **a)
 {
-	int	size;
+	int		size;
 	t_stack	*b;
 
 	b = NULL;

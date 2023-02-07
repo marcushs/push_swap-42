@@ -9,9 +9,7 @@
 /*   Updated: 2023/01/27 12:37:58 by marcus           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../includes/libft.h"
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	check_char(char *str)
 {
@@ -21,26 +19,30 @@ int	check_char(char *str)
 	while (str[++i])
 	{
 		if ((i != 0 && str[i] == '-') || \
+		(str[i] == '-' && (str[i + 1] < '0' || str[i + 1] > '9')) || \
+		(str[i] == '+' && (str[i + 1] < '0' || str[i + 1] > '9')) || \
 		(i != 0 && str[i] == '+') || !ft_isdigit(str[i]))
 			return (0);
 	}
 	return (1);
 }
 
-int	check_char_strs(char **strings)
+int	check_char_strs(char **s)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (strings[++i])
+	while (s[++i])
 	{
 		j = -1;
-		while (strings[i][++j])
+		while (s[i][++j])
 		{
-			if ((j != 0 && strings[i][j] == '-') || \
-			(j != 0 && strings[i][j] == '+') || !ft_isdigit(strings[i][j]))
-				return (free_2d_array((void **)&strings), 0);
+			if ((j != 0 && s[i][j] == '-') || \
+			(s[i][j] == '-' && (s[i][j + 1] < '0' || s[i][j + 1] > '9')) \
+			|| (s[i][j] == '+' && (s[i][j + 1] < '0' || s[i][j + 1] > '9')) \
+			|| (j != 0 && s[i][j] == '+') || !ft_isdigit(s[i][j]))
+				return (0);
 		}
 	}
 	return (1);
@@ -52,6 +54,8 @@ int	check_double(long *arr, int count)
 	int	j;
 
 	i = 0;
+	if (count == 1)
+		return (1);
 	while (i < count)
 	{
 		j = i + 1;

@@ -10,51 +10,85 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	push_swap
+GREEN = \033[0;32m
+YELLOW = \033[0;33m
+NC = \033[0m
 
-CC				=	gcc
+NAME				=	push_swap
 
-CFLAGS			=	-Wall -Wextra -Werror #-fsanitize=address
+BONUS				=	checker
 
-LIBFT_FLAGS		=	-L libft -lft
+CC					=	gcc
 
-LIBS_FILES		=	${shell find libft -type f}
-HEADER_FILES	=	${shell find includes -type f}
+CFLAGS				=	-Wall -Wextra -Werror #-fsanitize=address
 
-DIR_SRCS		=	./srcs/
-LIST_SRCS		=	best_rotate_combo.c cases_a_to_b.c cases_b_to_a.c check_1_arg.c check_args.c \
-					DCLL.c error.c free.c operation_utils.c parse.c push_swap.c push.c rotate.c rrotate.c \
-					run_combo.c solve_5_or_under.c solve_large_list.c solve_utils.c solve_utils2.c \
-					swap.c
-SRCS			=	${addprefix ${DIR_SRCS}, ${LIST_SRCS}}
+LIBFT_FLAGS			=	-L libft -lft
 
-DIR_OBJS		=	.objs/
-LIST_OBJS		=	${LIST_SRCS:.c=.o}
-OBJS			=	${addprefix ${DIR_OBJS}, ${LIST_OBJS}}
+LIBS_FILES			=	${shell find libft -type f}
+HEADER_FILES		=	${shell find includes -type f}
 
-HEADERS			=	includes
+DIR_PS_SRCS			=	./srcs/push_swap/
+LIST_PS_SRCS		=	best_rotate_combo.c cases_a_to_b.c cases_b_to_a.c check_1_arg.c check_args.c \
+						DCLL.c error.c free.c operation_utils.c parse.c push.c \
+						rotate.c rrotate.c run_combo.c solve_5_or_under.c solve_large_list.c \
+						solve_utils.c solve_utils2.c swap.c
+PS_SRCS_1			=	${addprefix ${DIR_PS_SRCS}, ${LIST_PS_SRCS}}
+PS_SRCS_2			=	./srcs/push_swap/push_swap.c
 
-RM				=	rm -rf
+DIR_CHECKER_SRCS	=	./srcs/checker/
+LIST_CHECKER_SRCS	=	checker.c gnl_utils.c gnl.c
+CHECKER_SRCS		=	${addprefix ${DIR_CHECKER_SRCS}, ${LIST_CHECKER_SRCS}}
+
+DIR_OBJS			=	.objs/
+LIST_PS_OBJS		=	${LIST_PS_SRCS:.c=.o}
+OBJS_1				=	${addprefix ${DIR_OBJS}, ${LIST_PS_OBJS}}
+OBJS_2				=	${PS_SRCS_2:.c=.o}
+
+DIR_CHECKER_OBJS	=	.bonus_objs/
+LIST_CHECKER_OBJS	=	${LIST_CHECKER_SRCS:.c=.o}
+CHECKER_OBJS		=	${addprefix ${DIR_CHECKER_OBJS}, ${LIST_CHECKER_OBJS}}
+
+HEADERS				=	includes
+
+RM					=	rm -rf
 
 all:		${NAME}
 
-${DIR_OBJS}%.o:	${DIR_SRCS}%.c Makefile 
-				${CC} ${CFLAGS} -c $< -o $@ -I ${HEADERS}
+${DIR_OBJS}%.o:	${DIR_PS_SRCS}%.c Makefile 
+				@${CC} ${CFLAGS} -c $< -o $@ -I ${HEADERS}
 
-${NAME}:	${DIR_OBJS} ${OBJS} ${LIBS_FILES} ${HEADER_FILES}
-			${MAKE} -C ./libft
-			${CC} ${CFLAGS} ${OBJS} ${LIBFT_FLAGS} -o ${NAME}
+${DIR_CHECKER_OBJS}%.o:	${DIR_CHECKER_SRCS}%.c
+						@${CC} ${CFLAGS} -c $< -o $@ -I ${HEADERS}
+
+${OBJS_2}:	${PS_SRCS_2}
+			@${CC} ${CFLAGS} -c $< -o $@ -I ${HEADERS}
+
+${NAME}:	${DIR_OBJS} ${OBJS_1} ${OBJS_2} ${LIBS_FILES} ${HEADER_FILES}
+			@${MAKE} -sC ./libft
+			@${CC} ${CFLAGS} ${OBJS_1} ${OBJS_2} ${LIBFT_FLAGS} -o ${NAME}
+			@echo "${GREEN}Compiled push_swap! ${NC}"
+
+bonus:		${BONUS}
+
+${BONUS}:	${NAME} ${DIR_CHECKER_OBJS} ${CHECKER_OBJS} ${LIBS_FILES} ${HEADER_FILES}
+			@${CC} ${CFLAGS} ${CHECKER_OBJS} ${OBJS_1} ${LIBFT_FLAGS} -o ${BONUS}
+			@echo "${GREEN}Compiled checker! ${NC}"
 
 ${DIR_OBJS}:
-			mkdir -p ${DIR_OBJS}
+			@mkdir -p ${DIR_OBJS}
+
+${DIR_CHECKER_OBJS}:
+			@mkdir -p ${DIR_CHECKER_OBJS}
 
 clean:
-			${RM} ${DIR_OBJS}
-			${MAKE} clean -C ./libft
+			@${RM} ${DIR_OBJS} ${DIR_CHECKER_OBJS} ./srcs/push_swap/push_swap.o
+			@${MAKE} clean -sC ./libft
+			@echo "${YELLOW}Object files and libraries cleared!${NC}"
 
 fclean:		clean
-			${MAKE} fclean -C ./libft
-			${RM} ${NAME}
+			@${MAKE} fclean -sC ./libft
+			@${RM} ${NAME} ${BONUS}
+			@echo "${YELLOW}Executable cleared!${NC}"
 
 re:			fclean
 			${MAKE} all

@@ -1,5 +1,4 @@
-#include "../includes/libft.h"
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static void	update_ptr_swap(t_stack **head)
 {
@@ -33,21 +32,24 @@ static void	ft_swap(t_stack **head)
 	update_index(head, size);
 }
 
-void	ft_sa(t_stack **a)
+void	ft_sa(t_stack **a, char c)
 {
 	ft_swap(a);
-	ft_putstr_fd("sa\n", 1);
+	if (c == 'p')
+		ft_putstr_fd("sa\n", 1);
 }
 
-void	ft_sb(t_stack **b)
+void	ft_sb(t_stack **b, char c)
 {
 	ft_swap(b);
-	ft_putstr_fd("sb\n", 1);
+	if (c == 'p')
+		ft_putstr_fd("sb\n", 1);
 }
 
-void	ft_ss(t_stack **a, t_stack **b)
+void	ft_ss(t_stack **a, t_stack **b, char c)
 {
 	ft_swap(a);
 	ft_swap(b);
-	ft_putstr_fd("ss\n", 1);
+	if (c == 'p')
+		ft_putstr_fd("ss\n", 1);
 }
