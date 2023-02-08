@@ -73,5 +73,24 @@ The main function of this file is:
 t_stack	*check_1arg(char *argv);
 ```  
 
+This function is called when `argc == 2`, it first count how many elements are inside, if there is none, we consider that there is nothing to be sorted, hence exiting the program without `Error` message.  
+
+Then we call `ft_split` to turn the argument into an array of strings. Next, this array of strings will be passed to a function which converts the strings into an array of `long int`. It first check if all the characters are valid, then, with the help of our `ft_atoi`, they are converted to `long`. Why `long` you may ask, because we need to handle the `MAX_INT` and `MIN_INT` cases, so we store every element as `long` and we check if it is in the range of an `int`.  
+
+After that, we will check if there are duplicates with another function `check_double`, if no error has occured in the whole process, function `arr_to_list` is called to create a doubly circular linked list with all the elements, the list will be returned as `stack A`.  
+
+#### **check_args.c**  
+
+As the name suggests, this function is called when we have more than one arguments:  
+```c
+t_stack	*check_args(int argc, char **argv);
+```  
+
+It follows the same logic as `check_1arg`, it first counts the total number of elements (including multile elements inside quotes), then with the know number of elements we allocate memory for the array of `long`.  
+
+Next, we call function `args_to_arr` to put arguments into the array, and at the same time we check if the characters are valid and the numbers are in range. (Note for `args_to_arr`: passed the `long` pointer to this function and I increment and dereference the pointer everytime to put a number to the array, a `tmp` pointer is set to be equal to arr, in case errors occur, it could be used to free the whole array instead of part of it since the pointer is being incremented).
+
+
+
 
 
