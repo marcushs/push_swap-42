@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   run_combo.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/08 10:03:34 by hleung            #+#    #+#             */
+/*   Updated: 2023/02/08 10:09:08 by hleung           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 int	ft_run_rarb(t_stack **a, t_stack **b, long nb, char c)
@@ -68,7 +80,7 @@ int	ft_run_rrarb(t_stack **a, t_stack **b, long nb, char c)
 			ft_rra(a, 'p');
 		ft_pa(b, a, 'p');
 	}
-	return (-1);	
+	return (-1);
 }
 
 int	ft_run_rarrb(t_stack **a, t_stack **b, long nb, char c)
@@ -89,5 +101,5 @@ int	ft_run_rarrb(t_stack **a, t_stack **b, long nb, char c)
 			ft_ra(a, 'p');
 		ft_pa(b, a, 'p');
 	}
-	return (-1);	
+	return (-1);
 }

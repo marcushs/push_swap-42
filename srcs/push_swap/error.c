@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:06:09 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/27 12:37:58 by marcus           ###   ########lyon.fr   */
+/*   Updated: 2023/02/08 10:02:45 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 int	check_char(char *str)

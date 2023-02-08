@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/08 10:04:04 by hleung            #+#    #+#             */
+/*   Updated: 2023/02/08 10:08:43 by hleung           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 static void	update_ptr_swap(t_stack **head)
 {
 	t_stack	*first;
 	t_stack	*second;
-	
+
 	if (!*head || (*head)->next == *head)
 		return ;
 	first = *head;

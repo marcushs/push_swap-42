@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 15:40:41 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/27 21:07:51 by marcus           ###   ########lyon.fr   */
+/*   Updated: 2023/02/08 10:03:01 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 t_stack	*arr_to_lst(long *arr, int size)

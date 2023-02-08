@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   DCLL.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 15:46:54 by hleung            #+#    #+#             */
-/*   Updated: 2023/01/27 21:32:55 by marcus           ###   ########lyon.fr   */
+/*   Updated: 2023/02/08 10:08:28 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 t_stack	*lst_new(long nb, int index)
@@ -23,11 +24,11 @@ t_stack	*lst_new(long nb, int index)
 	new->next = new;
 	new->prev = new;
 	return (new);
-} 
+}
 
 void	lst_add_back(t_stack **head, long nb, int index)
 {
-	t_stack *new;
+	t_stack	*new;
 
 	new = lst_new(nb, index);
 	if (new)
@@ -74,7 +75,7 @@ void	lst_clear(t_stack **head)
 
 int	lst_size(t_stack *head)
 {
-	int	i;
+	int		i;
 	t_stack	*tmp;
 
 	i = 0;

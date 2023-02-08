@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcus <marcus@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:33:54 by hleung            #+#    #+#             */
-/*   Updated: 2023/02/01 12:58:57 by marcus           ###   ########lyon.fr   */
+/*   Updated: 2023/02/08 10:03:04 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 int	main(int argc, char **argv)

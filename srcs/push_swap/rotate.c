@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/08 10:03:13 by hleung            #+#    #+#             */
+/*   Updated: 2023/02/08 10:09:38 by hleung           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 static void	ft_rotate(t_stack **head)
@@ -27,6 +39,5 @@ void	ft_rr(t_stack **a, t_stack **b, char c)
 	ft_rotate(a);
 	ft_rotate(b);
 	if (c == 'p')
-		ft_putstr_fd("rr\n",1);
+		ft_putstr_fd("rr\n", 1);
 }
-
