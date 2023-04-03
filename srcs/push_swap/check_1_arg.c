@@ -6,13 +6,13 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:43:30 by hleung            #+#    #+#             */
-/*   Updated: 2023/02/08 12:42:53 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/04/03 13:06:22 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static int	count_elements(char *arg)
+int	count_elements(char *arg)
 {
 	int	count;
 

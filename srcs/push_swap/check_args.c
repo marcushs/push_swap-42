@@ -6,31 +6,11 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:43:37 by hleung            #+#    #+#             */
-/*   Updated: 2023/02/08 10:02:35 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/04/03 13:19:17 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-static int	count_elements(char *arg)
-{
-	int	count;
-
-	count = 0;
-	while (*arg)
-	{
-		while (*arg && *arg == ' ')
-			arg++;
-		if (*arg)
-		{
-			count++;
-			arg++;
-		}
-		while (*arg && *arg != ' ')
-			arg++;
-	}
-	return (count);
-}
 
 static int	count_total_elements(char **argv)
 {
