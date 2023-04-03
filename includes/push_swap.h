@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 12:38:51 by hleung            #+#    #+#             */
-/*   Updated: 2023/04/03 13:06:48 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/04/03 13:27:45 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 typedef struct s_stack
 {
-	long	nb;
-	int		index;
+	long			nb;
+	int				index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }				t_stack;
