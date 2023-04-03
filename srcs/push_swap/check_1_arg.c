@@ -38,14 +38,11 @@ static long	*strings_to_arr(char **strs, int count)
 	long	num;
 	long	*arr;
 
+	if (!check_char_strs(strs))
+		free_error_exit((void **)&strs, &free_2d_array);
 	arr = (long *)malloc(sizeof(long) * count);
 	if (!arr)
 		free_error_exit((void **)&strs, &free_2d_array);
-	if (!check_char_strs(strs))
-	{
-		free_2d_array((void **)&strs);
-		free_error_exit((void **)&arr, &free_normal_arr);
-	}
 	i = -1;
 	while (++i < count)
 	{
