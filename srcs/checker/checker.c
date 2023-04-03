@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 09:59:30 by hleung            #+#    #+#             */
-/*   Updated: 2023/04/03 13:17:26 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/04/03 15:31:30 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	do_ops(char *line, t_stack **a, t_stack **b)
 	else if (ft_strncmp(line, "ra\n", 3) == 0)
 		ft_ra(a, 'c');
 	else if (ft_strncmp(line, "rb\n", 3) == 0)
-		ft_rb(a, 'c');
+		ft_rb(b, 'c');
 	else if (ft_strncmp(line, "rr\n", 3) == 0)
 		ft_rr(a, b, 'c');
 	else if (ft_strncmp(line, "rra\n", 4) == 0)
