@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:43:37 by hleung            #+#    #+#             */
-/*   Updated: 2023/05/04 17:55:53 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/05/05 13:34:40 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,13 @@ static int	strs_to_arr(char *arg, long **arr)
 	char	**strs;
 	int		i;
 	long	num;
+	(void)arg;
 
 	strs = ft_split(arg, ' ');
-	if (!strs || !check_char_strs(strs)) //free problem here and check the other free as well
+	if (!strs)
 		return (0);
+	if (!check_char_strs(strs))
+		return (free_2d_array((void **)&strs), 0);
 	i = -1;
 	while (strs[++i])
 	{
@@ -82,11 +85,8 @@ static void	args_to_arr(int argc, char **argv, long *arr)
 			*arr = num;
 			arr++;
 		}
-		if (count > 1)
-		{
-			if (!strs_to_arr(argv[i], &arr))
-				free_error_exit((void **)&tmp, &free_normal_arr);	
-		}
+		if (count > 1 && !strs_to_arr(argv[i], &arr))
+			free_error_exit((void **)&tmp, &free_normal_arr);
 	}
 }
 
