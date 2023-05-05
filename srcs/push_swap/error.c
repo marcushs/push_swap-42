@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:06:09 by hleung            #+#    #+#             */
-/*   Updated: 2023/02/08 10:02:45 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/05/05 17:13:24 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,22 @@ int	check_char_strs(char **s)
 			|| (s[i][j] == '+' && (s[i][j + 1] < '0' || s[i][j + 1] > '9')) \
 			|| (j != 0 && s[i][j] == '+') || !ft_isdigit(s[i][j]))
 				return (0);
+		}
+	}
+	return (1);
+}
+
+int	check_length(char **s)
+{
+	int	i;
+
+	i = -1;
+	while (s[++i])
+	{
+		if (ft_strlen(s[i]) > 10)
+		{
+			printf("test\n");
+			return (0);
 		}
 	}
 	return (1);

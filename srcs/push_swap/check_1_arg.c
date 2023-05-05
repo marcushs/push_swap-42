@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:43:30 by hleung            #+#    #+#             */
-/*   Updated: 2023/04/03 13:06:22 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/05/05 17:09:45 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static long	*strings_to_arr(char **strs, int count)
 	long	num;
 	long	*arr;
 
-	if (!check_char_strs(strs))
+	if (!check_char_strs(strs) || !check_length(strs))
 		free_error_exit((void **)&strs, &free_2d_array);
 	arr = (long *)malloc(sizeof(long) * count);
 	if (!arr)

@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 12:38:51 by hleung            #+#    #+#             */
-/*   Updated: 2023/04/03 13:27:45 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/05/05 17:08:33 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define ARG_ERROR "Error\n"
 # define BUFFER_SIZE 1
 # include <stdlib.h>
+# include <stdio.h>
 # include "../libft/libft.h"
 
 typedef struct s_stack
@@ -32,13 +33,14 @@ t_stack	*check_args(int argc, char **argv);
 //error
 int		check_char(char *str);
 int		check_char_strs(char **strings);
+int		check_length(char **s);
 int		check_double(long *arr, int count);
 //parse
 t_stack	*arr_to_lst(long *arr, int size);
 //dcll
 t_stack	*lst_new(long nb, int index);
 void	lst_add_front(t_stack **head, long nb);
-void	lst_add_back(t_stack **head, long nb, int index);
+void	lst_add_back(t_stack **head, long **arr, int index);
 void	lst_clear(t_stack **head);
 void	lst_print(t_stack *head);
 int		lst_size(t_stack *head);

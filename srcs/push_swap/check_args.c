@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:43:37 by hleung            #+#    #+#             */
-/*   Updated: 2023/05/05 13:34:40 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/05/05 17:08:54 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,11 @@ static int	strs_to_arr(char *arg, long **arr)
 	char	**strs;
 	int		i;
 	long	num;
-	(void)arg;
 
 	strs = ft_split(arg, ' ');
 	if (!strs)
 		return (0);
-	if (!check_char_strs(strs))
+	if (!check_char_strs(strs) || !check_length(strs))
 		return (free_2d_array((void **)&strs), 0);
 	i = -1;
 	while (strs[++i])
@@ -96,12 +95,16 @@ t_stack	*check_args(int argc, char **argv)
 	long	*arr;
 	t_stack	*a;
 
+	a = NULL;
 	count = count_total_elements(argv);
 	if (!count)
 		exit(0);
 	arr = (long *)malloc(sizeof(long) * count);
 	if (!arr)
-		print_message_exit();
+	{
+		ft_putstr_fd("Malloc error\n", 2);
+		exit(0);
+	}
 	args_to_arr(argc, argv, arr);
 	if (!check_double(arr, count))
 		free_error_exit((void **)&arr, &free_normal_arr);
