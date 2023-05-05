@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:43:37 by hleung            #+#    #+#             */
-/*   Updated: 2023/05/04 17:55:45 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/05/04 17:55:53 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	strs_to_arr(char *arg, long **arr)
 	long	num;
 
 	strs = ft_split(arg, ' ');
-	if (!strs || !check_char_strs(strs)) //free problem here and 
+	if (!strs || !check_char_strs(strs)) //free problem here and check the other free as well
 		return (0);
 	i = -1;
 	while (strs[++i])
