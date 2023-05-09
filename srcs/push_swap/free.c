@@ -20,14 +20,8 @@ void	print_message_exit(void)
 
 void	free_error_exit(void **arr, void (*f)(void **))
 {
-	f(arr);
+	(*f)(arr);
 	print_message_exit();
-}
-
-void	free_and_exit(void **arr, void (*f)(void **))
-{
-	f(arr);
-	exit(0);
 }
 
 void	free_normal_arr(void **arr)
@@ -48,4 +42,11 @@ void	free_2d_array(void **arr)
 	}
 	free(*arr);
 	*arr = NULL;
+}
+
+void	free_2d_error_exit(void **strs, void **arr)
+{
+	free_2d_array(strs);
+	free_normal_arr(arr);
+	print_message_exit();
 }

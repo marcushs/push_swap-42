@@ -11,5 +11,6 @@
 		"libft.h": "c",
 		"type_traits": "c",
 		"limits": "c"
-	}
+	},
+	"C_Cpp.errorSquiggles": "disabled"
 }

@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 15:46:54 by hleung            #+#    #+#             */
-/*   Updated: 2023/02/08 10:08:28 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/05/05 15:21:48 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ t_stack	*lst_new(long nb, int index)
 	return (new);
 }
 
-void	lst_add_back(t_stack **head, long nb, int index)
+void	lst_add_back(t_stack **head, long **arr, int index)
 {
 	t_stack	*new;
 
-	new = lst_new(nb, index);
+	new = lst_new((*arr)[index], index);
 	if (new)
 	{
 		if (!*head)
@@ -46,7 +46,11 @@ void	lst_add_back(t_stack **head, long nb, int index)
 		(*head)->prev = new;
 	}
 	else
+	{
+		ft_putstr_fd("Malloc error\n", 2);
+		free_normal_arr((void **)(arr));
 		lst_clear(head);
+	}
 }
 
 void	lst_clear(t_stack **head)
@@ -71,6 +75,7 @@ void	lst_clear(t_stack **head)
 	}
 	free(last);
 	free(*head);
+	*head = NULL;
 }
 
 int	lst_size(t_stack *head)
