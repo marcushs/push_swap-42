@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:43:30 by hleung            #+#    #+#             */
-/*   Updated: 2023/05/05 17:09:45 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/05/10 14:26:42 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static long	*strings_to_arr(char **strs, int count)
 	i = -1;
 	while (++i < count)
 	{
-		if (ft_strlen(strs[i]) < 11)
+		if (check_length(strs[i]) > 11)
 			free_2d_error_exit((void **)&strs, (void **)&arr);
 		num = ft_atoi(strs[i]);
 		if (num > 2147483647 || num < -2147483648)

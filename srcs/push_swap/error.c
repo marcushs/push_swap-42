@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:06:09 by hleung            #+#    #+#             */
-/*   Updated: 2023/05/05 17:13:24 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/05/10 14:28:52 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,19 @@ int	check_double(long *arr, int count)
 		i++;
 	}
 	return (1);
+}
+
+int	check_length(char *s)
+{
+	int	len;
+
+	len = 0;
+	while (*s && (*s == ' ' || (*s >= 9 && *s <= 13)))
+		s++;
+	while (*s && !(*s == ' ' || (*s >= 9 && *s <= 13)))
+	{
+		s++;
+		len++;
+	}
+	return (len);
 }

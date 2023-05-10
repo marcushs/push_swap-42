@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 12:38:51 by hleung            #+#    #+#             */
-/*   Updated: 2023/02/01 16:51:24 by marcus           ###   ########lyon.fr   */
+/*   Updated: 2023/05/10 14:27:13 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_stack	*check_args(int argc, char **argv);
 //error
 int		check_char(char *str);
 int		check_char_strs(char **strings);
-int		check_length(char **s);
+int		check_length(char *s);
 int		check_double(long *arr, int count);
 //parse
 t_stack	*arr_to_lst(long *arr, int size);
