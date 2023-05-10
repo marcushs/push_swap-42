@@ -6,7 +6,7 @@
 /*   By: hleung <hleung@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 09:59:30 by hleung            #+#    #+#             */
-/*   Updated: 2023/04/03 15:31:30 by hleung           ###   ########lyon.fr   */
+/*   Updated: 2023/05/10 15:53:09 by hleung           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ int	main(int argc, char **argv)
 		exit(0);
 	if (argc == 2)
 	{
-		if (count_elements(argv[1]) == 0)
-			ft_putstr_fd("Error\n", 2);
 		a = check_1arg(argv[1]);
 		apply_ops(&a, &b);
 	}
