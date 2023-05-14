@@ -20,15 +20,10 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		exit(0);
 	if (argc == 2)
-	{
 		a = check_1arg(argv[1]);
-		solve(&a);
-	}
-	if (argc > 2)
-	{
+	else (argc > 2)
 		a = check_args(argc, argv);
-		solve(&a);
-	}
+	solve(&a);
 	lst_clear(&a);
 	return (0);
 }

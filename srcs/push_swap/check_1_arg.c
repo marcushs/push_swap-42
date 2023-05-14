@@ -49,7 +49,7 @@ static long	*strings_to_arr(char **strs, int count)
 		if (check_length(strs[i]) > 11)
 			free_2d_error_exit((void **)&strs, (void **)&arr);
 		num = ft_atoi(strs[i]);
-		if (num > 2147483647 || num < -2147483648)
+		if (num > INT32_MAX || num < INT32_MIN)
 			free_2d_error_exit((void **)&strs, (void **)&arr);
 		arr[i] = num;
 	}
@@ -70,12 +70,9 @@ t_stack	*check_1arg(char *argv)
 	if (!strings)
 		exit(0);
 	arr = strings_to_arr(strings, count);
-	if (!check_double(arr, count))
-	{
-		free_2d_array((void **)&strings);
-		free_error_exit((void **)&arr, &free_normal_arr);
-	}
 	free_2d_array((void **)&strings);
+	if (!check_double(arr, count))
+		free_error_exit((void **)&arr, &free_normal_arr);
 	a = arr_to_lst(arr, count);
 	if (!a)
 		free_error_exit((void **)&arr, &free_normal_arr);

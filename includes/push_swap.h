@@ -15,7 +15,7 @@
 # define ARG_ERROR "Error\n"
 # define BUFFER_SIZE 1
 # include <stdlib.h>
-# include <stdio.h>
+# include <limits.h>
 # include "../libft/libft.h"
 
 typedef struct s_stack

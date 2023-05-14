@@ -64,15 +64,10 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		exit(0);
 	if (argc == 2)
-	{
 		a = check_1arg(argv[1]);
-		apply_ops(&a, &b);
-	}
 	if (argc > 2)
-	{
 		a = check_args(argc, argv);
-		apply_ops(&a, &b);
-	}
+	apply_ops(&a, &b);
 	if (!is_sorted(&a) || b)
 		ft_putstr_fd("KO\n", 1);
 	else

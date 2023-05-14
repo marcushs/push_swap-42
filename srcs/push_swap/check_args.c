@@ -25,14 +25,14 @@ static int	count_total_elements(char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			while (argv[i][j] && argv[i][j] == ' ')
+			while (argv[i][j] && ft_isspace(argv[i][j]))
 				j++;
 			if (argv[i][j])
 			{
 				count++;
 				j++;
 			}
-			while (argv[i][j] && argv[i][j] != ' ')
+			while (argv[i][j] && !ft_isspace(argv[i][j]))
 				j++;
 		}
 	}
@@ -56,7 +56,7 @@ static int	strs_to_arr(char *arg, long **arr)
 		if (check_length(strs[i]) > 11)
 			return (free_2d_array((void **)&strs), 0);
 		num = ft_atoi(strs[i]);
-		if (num > 2147483647 || num < -2147483648)
+		if (num num > INT32_MAX || num < INT32_MIN)
 			return (free_2d_array((void **)&strs), 0);
 		**arr = num;
 		(*arr)++;
@@ -81,7 +81,7 @@ static void	args_to_arr(int argc, char **argv, long *arr)
 			if (!check_char(argv[i]) || check_length(argv[i]) > 11)
 				free_error_exit((void **)&tmp, &free_normal_arr);
 			num = ft_atoi(argv[i]);
-			if (num > 2147483647 || num < -2147483648)
+			if (num > INT32_MAX || num < INT32_MIN)
 				free_error_exit((void **)&tmp, &free_normal_arr);
 			*arr = num;
 			arr++;
